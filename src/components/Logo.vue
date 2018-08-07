@@ -1,14 +1,24 @@
 <template>
-  <div class="logo">
+  <a class="logo" :href="base">
     <img src="../assets/logo.png">
     <h1>Collections</h1>
-  </div>
+  </a>
 </template>
 
 <script lang="ts">
 import Vue from 'vue'
 
-export default Vue.extend({})
+const Logo = Vue.extend({
+  name: 'Logo',
+
+  computed: {
+    base (): string {
+      return process.env.BASE_URL!
+    }
+  }
+})
+
+export default Logo
 </script>
 
 <style lang="scss" scoped>
@@ -22,6 +32,7 @@ export default Vue.extend({})
     img {
       width: 50px;
     }
+
     h1 {
       margin-left: 12px;
       font-size: 24px;
